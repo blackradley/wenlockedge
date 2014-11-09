@@ -1,0 +1,4 @@
+SetEnv session.use_cookies='0';
+RewriteEngine on
+RewriteCond $1 !^(index\.php|public|robots\.txt|([^/.]+)\.html)
+RewriteRule ^(.*)$ /index.php/$1 [L]

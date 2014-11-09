@@ -1,0 +1,827 @@
+@font-face {
+    font-family: 'londonbetweenregular';
+    src: url('/public/fonts/londonbetween-webfont.eot');
+    src: url('/public/fonts/londonbetween-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/public/fonts/londonbetween-webfont.woff') format('woff'),
+         url('/public/fonts/londonbetween-webfont.ttf') format('truetype'),
+         url('/public/fonts/londonbetween-webfont.svg#londonbetweenregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+	font-size: 16px;
+	color: #415056;
+	background-color: #ffd300;
+	line-height: 1.5;
+}
+
+
+/* Basic typography */
+h1, h2, h3, h4 {
+	font-family: londonbetweenregular, sans-serif;
+	margin: 0;
+	line-height: 1.4;	
+}
+h1, h2, h3{
+	font-weight: normal;
+}
+a{
+	color: #e30513;
+}
+a:link,
+a:visited{
+	color: #e30513;
+	text-decoration: none;
+}
+a:hover,
+a:focus,
+a:active{
+	color: #339ed3;
+	text-decoration: underline;
+}
+.navbar .nav > li > a,
+.dropdown-menu li > a {
+	font-family: londonbetweenregular, sans-serif;
+}
+
+a.secret, a.secret:hover {
+	text-decoration: none;
+	color: inherit;
+}
+li{
+	line-height: 1.5;
+}
+
+
+/* Cookies bar */
+.cc-cookies{
+	position: relative;/* This pushes the rest of the page down below the Cookie strip, making it visible, rather than overlaid */
+}
+
+
+/* Masthead */
+#masthead{
+	background: transparent url(../img/more-than-a-museum.png) left top no-repeat;
+	border-bottom: 90px solid #fff;
+}
+#masthead .container{
+	padding-top: 35px;
+}
+#masthead .masthead-main{
+	position: relative;/* context for .navbar below */
+}
+.navbar{
+	margin-bottom: 0;
+	position: absolute;
+	bottom: 0;
+}
+.navbar .brand{
+	color: #fff;
+	text-shadow: none;
+	background-color: #e30513;
+	margin-left: 0;
+	line-height: 1;
+	font-family: londonbetweenregular, sans-serif;
+	padding-bottom: 5px;
+}
+	.navbar-inner{
+		padding: 0;
+		background: none;	
+		filter: none;
+		background-color: transparent;
+		border: none;
+		box-shadow: none;
+	}
+	.navbar-inner .nav{
+		background-color: #415056;
+		font-size: 23px;	
+	}
+	.navbar .nav > li{
+		padding: 10px 0 10px 15px;
+		line-height: 23px;
+	}
+	.navbar .nav > li > a{
+		color: #fff;
+		text-shadow: none;
+		border-right: 3px solid #ffd300;
+		padding: 0 15px 0 0;
+	}
+	.navbar .nav > li > a.last{
+		border-right: none;
+	}
+	.navbar .nav > li > a:link,
+	.navbar .nav > li > a:visited{
+		color: #fff;
+	}
+	.navbar .nav > li > a:hover,
+	.navbar .nav > li > a:focus,
+	.navbar .nav > li > a:active{
+		color: #ffd300;
+	}
+
+	.navbar .nav li.dropdown.open > .dropdown-toggle, 
+	.navbar .nav li.dropdown.active > .dropdown-toggle,
+	.navbar .nav li.dropdown.open.active > .dropdown-toggle{
+		color: #ffd300;
+		background-color: #415056;
+	}
+	
+	li.dropdown .ss-dropdown{
+		font-size: 14px;
+	}
+	
+	.dropdown-menu{
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+	}
+	.dropdown-menu li > a {
+		padding: 7px;
+		color: #e30513;
+	}
+	.dropdown-menu li > a:hover{
+		background: none;
+		background-color: #339ed3;
+	}
+		
+	.navbar .btn-navbar{
+		background: none;
+		background-color: #e30513;
+		border: none;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+		height: 16px;
+	}
+	.navbar .btn-navbar:hover{
+		background-color: #339ed3;
+	}
+
+#masthead .masthead-aside{
+	text-align: right;
+}
+	#masthead .masthead-aside dl{
+		font-family: londonbetweenregular, sans-serif;
+		font-size: 26px;
+		margin: 0;
+	}
+	#masthead .masthead-aside dt{
+		color: #fff;
+		line-height: 1.4;
+		display: inline;
+		font-weight: normal;
+	}
+	#masthead .masthead-aside dd{
+		display: inline;
+		line-height: 1.4;
+	}
+	#masthead .masthead-aside a{
+		color: #e30513;
+	}
+
+#masthead .row{
+	position: relative;/* Context for .header-circles below */
+}
+	#masthead .header-circles{
+		position: absolute;
+		right: 0;
+		bottom: -73px;
+	}
+
+
+#section-content{
+	background-color: #ecedee;
+}
+	.carousel-control a{
+		
+	}
+	.carousel-control:link,
+	.carousel-control:visited{
+		color:#fff;
+	}
+	.carousel-control:hover,
+	.carousel-control:focus,
+	.carousel-control:active{
+		color:#fff;
+	}
+	#section-content .content{
+	
+	}
+	#section-content .content header{	
+		
+		margin-bottom: 33px;
+	}
+	#section-content .content h1{
+		background-color: #e30513;
+		color: #FFF;
+		padding: 8px 35px;
+		margin-top:-50px;
+		
+		/* Seems to trigger odd intermittent issue in Chrome on PC
+		-webkit-box-shadow: 2px 2px 3px rgba(60, 80, 86, 0.15);
+		-moz-box-shadow: 2px 2px 3px rgba(60, 80, 86, 0.15);
+		box-shadow: 2px 2px 3px rgba(60, 80, 86, 0.15);
+		*/
+	}
+	.carousel{
+		border: 35px solid #f8a80d;
+		margin-bottom: 50px;
+	}
+	.carousel-inner > .item > img, 
+	.carousel-inner > .item > a > img {
+		width: 100%;
+	}
+	.intro-blurb{
+		padding: 35px;
+		margin-top: -50px;
+		margin-bottom: 50px;
+		background-color: #415056;
+		color: #FFF;
+	}
+	.content-main{
+		overflow:visible;
+		float:left;
+		background-color: #FFF;		
+		padding: 50px 35px 35px;
+		margin-bottom: 50px;
+	}
+	.map-holder{
+		width: 700px;
+	}
+	.content-main .item{
+		margin-bottom: 35px;
+	}
+	.content-main h3 {
+		clear:both;
+		background-color: #e30513;
+		color: #FFF;
+		padding: 7px 35px;
+		margin-top: -61px;
+		margin-left: -35px;
+		margin-bottom: 31px;
+		
+		/* Seems to trigger odd intermittent issue in Chrome on PC
+		-webkit-box-shadow: 2px 2px 3px rgba(60, 80, 86, 0.15);
+		-moz-box-shadow: 2px 2px 3px rgba(60, 80, 86, 0.15);
+		box-shadow: 2px 2px 3px rgba(60, 80, 86, 0.15);
+		*/
+	}
+	.content-main h4{
+		font-size: 24px;
+		line-height: 1.4;
+		margin-bottom: 25px;
+	}
+	.content-main p{
+		margin-bottom: 25px;
+	}
+	.content-main p:last-child{
+		margin-bottom: 0;
+	}
+	.content-main img{
+		clear:bottom;
+	}
+	.datetime{
+		font-weight: bold;
+	}
+	
+.footer-circles{
+	position: relative;/* Context for images below */
+	height: 354px;
+}	
+	.footer-circles img{
+		position: absolute;
+		bottom: 0;
+	}
+	.footer-circles .circle-left{
+		left:0;
+		width: 54.188034188%;
+	}
+	.footer-circles .circle-right{
+		right:0;
+		width: 43.675213675%;
+	}
+	
+/* Sidebar */
+.bs-docs-sidebar{
+	margin-top: 50px;	
+}
+#section-content aside{
+	background-color: #fff;
+	padding: 50px 25px 25px;/* padding-top here provides height for negative margin on h3 to work against */
+	margin-bottom: 50px;
+}
+#section-content aside.unfilled{
+	background: none;
+	padding: 0;
+	margin-bottom: 41px;
+	margin-top: -20px;
+}
+aside h3{
+	background-color: #e30513;
+	color: #FFF;
+	padding: 7px 25px;
+	margin-top: -61px;
+	margin-left: -25px;
+	margin-bottom: 16px;
+	
+	/* Seems to trigger odd intermittent issue in Chrome on PC
+	-webkit-box-shadow: 2px 2px 3px rgba(60, 80, 86, 0.15);
+	-moz-box-shadow: 2px 2px 3px rgba(60, 80, 86, 0.15);
+	box-shadow: 2px 2px 3px rgba(60, 80, 86, 0.15);
+	*/
+}
+
+/* Specific Asides */
+.times-prices{
+	padding:35px 25px 172px !important;/* padding-bottom matches height of bg-image below */
+	background: #fff url(../img/bg-panel-snibston-montage.jpg) center bottom no-repeat;
+}
+	.times-prices h3{
+		margin-top:-46px;
+		margin-bottom: 0;
+	}
+	.times-prices ul{
+		list-style-type: none;
+		margin: 20px 0;
+	}
+	.opening-times{
+	
+	}
+		.opening-times li{
+			padding: 7px 0;
+			border-bottom: 2px dashed #c6cacc;
+			overflow: hidden;			
+		}
+		.opening-times li b{
+			float: left;
+		}
+		.opening-times li .times{
+			float: right;
+		}
+		
+	.times-prices button{
+		background-color: #415056;
+		color: #ffd300;
+		font-size: 24px;
+		font-family: londonbetweenregular, sans-serif;
+		height: 50px;
+		line-height: 50px;
+		padding: 0 20px;
+		border: 0;
+	} 
+
+.social{
+	overflow: auto;
+}
+	/* Override Trip Advisor default styles */
+	.social .TA_rated{
+		width: 153px;
+		float: left;
+	}
+	.widFRR{
+		margin :0 !important;
+	}
+	.icon{
+		margin-left: 8px;
+	}
+	.icon:link,
+	.icon:visited{
+		color: #969ea2;
+	}	
+	.icon:hover,
+	.icon:focus,
+	.icon:active{
+		color: #339ed3;
+		text-decoration: none;
+	}
+	.icon .ss-icon{
+		font-size: 61px;
+	}
+
+.tweet_list{
+	list-style-type: none;
+	margin:0;
+}
+	.tweet_list li{
+		border-top: 2px solid #d9dcdd;
+		padding: 16px 0;
+	}
+	li.tweet_first{
+		border-top: none;
+		padding-top: 0;
+	}
+	.tweet_list li:last-child{
+		padding-bottom: 0;
+	}
+
+/* Footer */
+footer{
+
+}
+#associations{
+	background-color: #fff;
+	padding: 50px 0;
+}
+	#associations .row{
+	
+	}
+	#associations .association{
+		display: block;
+		float: left;
+	}
+.legal{
+	padding: 50px 0;
+}
+	.legal p{
+		margin: 0;
+	}
+	
+	
+/* IE fixes */	
+
+/* IE7 */
+.ie7{
+	
+}
+	/* What the hell is Bootstrap playing at? */
+	.ie7 .visible-tablet{
+		display: block !important;
+	}
+	/* Fix issues with z-index between main h1 and navbar dropdowns */
+	.ie7 #masthead{
+		z-index:2000;
+		position:relative;
+		border-bottom:0;
+	}
+	.ie7 #section-content{
+		z-index:1000;
+		border-top:90px solid #FFF;
+		position:relative;
+	}
+	.ie7 .container{
+		position:relative;
+	}
+	.ie7 .content{
+		position:relative;
+		padding-top:50px;
+		z-index:100;
+	}
+	.ie7 .content header{
+		position:absolute;
+		z-index:10;
+		top:-50px;
+	}
+	.ie7 #section-content header h1{
+		margin-top:0;
+	}
+	/* Fix issues with floats in Events output */
+	.ie7 .content-main,
+	.ie7 .content-main .item{
+		float:none;
+	}
+	.ie7 .content-main .item .div{
+		float:left;
+	}	
+	/* Fix issues with colour in main headllines */
+	.ie7 header h1 a,
+	.ie7 .content-main h3 a,
+	.ie7 aside h3 a{
+		color:#fff;
+	}
+	
+/* Media queries */
+
+/* Phone mode */
+@media (max-width: 342px) {
+.navbar .brand{
+	padding-right: 9px;
+	padding-left: 9px;
+}
+}
+@media (max-width: 470px) {
+	
+}
+@media (min-width: 480px) and (max-width: 767px) {
+
+}
+/* Tablet mode - Portrait */
+@media (max-width: 767px) {
+	.navbar .brand{
+		font-size: 18px;
+		height: 20px;
+		line-height: 20px;
+	}
+	.nav-collapse .nav > li > a,
+	.nav-collapse .nav > li > a:hover,
+	.nav-collapse .dropdown-menu a,
+  	.nav-collapse .dropdown-menu a:hover {
+		padding: 7px !important;
+  	}
+	.nav-collapse .nav{
+		margin-bottom:0;
+	}
+	
+	#masthead{
+		background-image: none;
+		border-bottom:none;
+		margin-bottom:25px;
+	}
+	#masthead .masthead-aside dl{
+		font-size:16px;
+	}
+	#masthead .masthead-aside{
+		margin-top:8px;
+		margin-bottom: 35px;
+	}
+
+	#section-content{
+		background-color: #ffd300;
+	}
+	#section-content .content header{
+		margin-bottom:50px;
+	}
+	#section-content .content h1 {
+		line-height:1;
+		padding: 8px 25px 0;
+	}
+
+	.content-main,
+	.content-main .item{
+		float: none;
+	}
+	.content-main .item img{
+		display:none;
+	}
+	.content-main{
+		padding: 50px 25px 25px;
+		margin-bottom:25px;
+	}
+	.content-main h3{
+		padding: 7px 25px;
+		margin-left: -25px;
+	}
+	.content-main h4{
+		font-size:18px;
+	}
+
+	.intro-blurb{
+		padding: 25px;
+		margin-bottom:35px;
+	}
+	.map-holder{
+		width: auto;
+	}
+	
+	.bs-docs-sidebar{
+		margin-top:35px;
+	}
+
+	
+	#section-content aside {
+		margin-bottom:35px;
+	}
+		.times-prices{
+			background-image: none;
+			padding-bottom: 12px !important;/* should be 25px */
+			font-size:14px;
+		}	
+		.times-prices ul{
+			margin-bottom:0;
+		}		
+	#section-content aside.unfilled{
+		padding: 25px 25px;
+		background-color: #fff;
+		margin-top:0;
+		margin-bottom:35px;
+	}
+		.social{
+			overflow:visible;
+		}
+		.social .social-wrapper{
+			overflow:auto;
+			clear:both;
+		}
+		.social .icon{
+			margin-top: 25px;
+			margin-left: 20px;
+			display:block;
+			float:left;
+		}
+		.social .icon.first{
+			
+		}
+		.icon .ss-icon{
+			font-size: 80px;
+		}
+
+	#associations .span12{
+		margin-left: 20px;
+	}
+
+	.legal{
+		padding-top: 0;
+	}
+	
+	/* IE7 */
+	
+	/* Fix visibility oddities */
+	.ie7 .visible-tablet{
+		display: none !important;
+	}
+	.ie7 .navbar span.visible-phone{
+		display: block !important;
+	}
+}
+
+@media (max-width: 979px) {
+	.logo img{
+		width: 95%;
+	}
+	.navbar {
+		position: relative;
+		margin-top: -40px;
+	}
+	.navbar .nav > li{
+		padding: 5px 0 5px 15px;
+	}
+	.navbar .nav > li > a {
+		border-right: none;
+		margin-right: 15px;
+	}
+	.navbar .btn-navbar{
+		margin-right: 0;
+	}
+	.nav-collapse .nav > li > a:hover,
+  	.nav-collapse .dropdown-menu a:hover {
+    	background-color: #677;
+		color: #ffd300 !important;
+		padding: 4px;
+  	}
+	.nav-collapse .dropdown-menu a:hover{
+		color: #FFF !important;
+	} 
+	.dropdown-menu li > a:hover,
+	.dropdown-menu li > a:focus,
+	.dropdown-submenu:hover > a {
+		background-color: #339ed3 !important;
+		background-image: none;
+	}
+	.nav-collapse .nav > li > a, 
+	.nav-collapse .dropdown-menu a {
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+		font-weight: normal;
+	    color: #FFF;
+		padding: 4px;
+	}
+	.nav-collapse .dropdown-menu {
+		margin-left: 0;
+	}
+	.nav-collapse .dropdown-menu li + li a {
+		margin-bottom: 1px;
+	}
+	.nav-collapse .dropdown-menu a{
+		color: #e30513;
+		background-color: #FFF;	
+	}
+	.nav-collapse .dropdown-menu li a{
+		margin-bottom: 1px;	
+	}
+
+	.navbar .nav li.dropdown.open > .dropdown-toggle, 
+	.navbar .nav li.dropdown.active > .dropdown-toggle, 
+	.navbar .nav li.dropdown.open.active > .dropdown-toggle{
+		background-color: #fff;
+		color: #415056;
+		padding: 4px;
+		margin-right: 15px;
+	}
+	.navbar .nav li.dropdown.open > .dropdown-toggle:hover{
+		color: #677 !important;
+	}
+	.times-prices button{
+		font-size: 18px;
+	}
+	
+	/* IE7 */
+	
+	/* Fix navbar persistence */
+	.ie7 .navbar {
+		position: relative;
+		min-height: 35px;
+	}
+}
+
+/* Tablet modes - Landscape */
+@media (min-width: 768px) and (max-width: 979px) {
+	#masthead .container{
+		padding-top: 55px;
+	}
+	#masthead .masthead-aside{
+		text-align: left;
+	}
+	#masthead .masthead-aside dl{
+		font-size: 20px;
+		margin-bottom: 12px;
+	}	
+	#masthead .masthead-aside dt{
+		display: block;
+	}
+	#masthead .masthead-aside dd{
+		margin-left:0;
+	}
+	
+	.opening-times li{
+		line-height: 1.4;
+	}
+	.opening-times li .times{
+		float: none;
+		display: block;
+		clear: both;
+	}
+	
+	.map-holder{
+		width: 406px;
+	}
+	.map-holder h4{
+		font-size: 16px;
+	}
+	
+	.social .icon{
+		margin-left: 0;
+		margin-right: 9px;
+	}
+	.social .icon.last{
+		margin-right: 0;
+	}
+	.icon .ss-icon{
+		font-size: 65px;
+	}
+}
+
+/* Desktop modes */
+@media (min-width: 768px) and (max-width: 1200px) {
+	.navbar-inner .nav {
+		font-size: 18px;
+	}
+	#masthead .header-circles{
+		width: 300px;
+		bottom: -50px;
+	}
+	.footer-circles{
+		height: 259px;
+	}
+	#section-content aside.unfilled{
+		margin-bottom: 10px;
+	}
+	.social .TA_rated{		
+		float: none;
+		margin-bottom: 10px;
+	}
+
+}
+
+@media (min-width: 980px) and (max-width: 1200px){
+	#masthead .masthead-aside dl{
+		font-size: 23px;
+	}
+	.map-holder{
+		width: 550px;
+	}
+	
+	.social .icon{
+		margin-left: 0;
+		margin-right: 20px;
+	}
+	.social .icon.last{
+		margin-right: 0;
+	}
+	.icon .ss-icon{
+		font-size: 82px;
+	}
+}
+
+@media (max-width: 1200px) {
+
+}
+
+@media (min-width: 1200px) {
+	
+}
+
+.event-wide {
+	width: 100%;
+}
+
+.morecontent span {
+    display: none;
+}
+
+a.morelink {
+    float: right;
+}
