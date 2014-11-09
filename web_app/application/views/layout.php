@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="<?=$title ?> - <?=$graph->description ?>">
 
-<!-- Le styles -->
+<!-- Styles -->
 <link href="/public/css/bootstrap.css" rel="stylesheet">
 <link href="/public/css/bootstrap-responsive.css" rel="stylesheet" />
 <link href="/public/css/cookiecuttr.css" rel="stylesheet" />
