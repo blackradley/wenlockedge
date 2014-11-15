@@ -9,6 +9,7 @@ password.txt
 /web_app/vendor/
 _*.cmd
 _*.ps1
+*.sublime-workspace
 
 #################
 ## Eclipse
