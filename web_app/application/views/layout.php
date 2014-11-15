@@ -56,7 +56,7 @@
 								<ul class="nav">
 									<li><a href="/">Home</a></li>
 									<li class="dropdown">
-		              					<a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="/welcome/visit">Visit <b class="ss-icon ss-dropdown"></b></a>
+		              					<a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="/welcome/visit" id="visit">Visit <b class="ss-icon ss-dropdown"></b></a>
 		              					<ul class="dropdown-menu">
 		                					<li><a href="/welcome/visit">Visit Snibston</a></li>
 		                					<li><a href="/welcome/eat">Eat and Shop</a></li>
@@ -68,7 +68,7 @@
 						            <li><a href="/welcome/century">Century Theatre</a></li>
 									<li><a href="/welcome/events">What's On</a></li>
 									<li class="dropdown">
-		              					<a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="/welcome/learn">Learn <b class="ss-icon ss-dropdown"></b></a>
+		              					<a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="/welcome/learn" id="learn">Learn <b class="ss-icon ss-dropdown"></b></a>
 		              					<ul class="dropdown-menu">
 		               						<li><a href="/welcome/learn">Learn at Snibston</a></li>
 		              					    <li><a href="/welcome/education">Making an Educational Visit</a></li>

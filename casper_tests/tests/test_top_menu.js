@@ -14,7 +14,14 @@ casper.test.begin('Test desktop menu at ' + casper.cli.options.baseUrl, {
         casper.start()
             .thenOpen(casper.cli.options.baseUrl)
             .then(function () {
+                test.assertTextExists('ACCEPT COOKIES', 'Cookie Cuttr shown.');
                 menu.clickAcceptCookies();
+            })
+            .wait(500, function () {
+                // Wait for the cookie cuttr to disappear
+            })
+            .then(function(){
+                test.assertTextDoesntExist('ACCEPT COOKIES', 'Cookie Cuttr gone.');
             })
             .eachThen(names, function (name) {
                 menu.clickItemAndCheckHeader(name.data[0], name.data[1]);
