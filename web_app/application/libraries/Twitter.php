@@ -22,16 +22,16 @@ class Twitter {
 	/*************************************** config ***************************************/
 
    // Your Twitter App Consumer Key
-	private $consumer_key = 'oWaoDbjv24ARKXdXiG9Yw';
+	private $consumer_key = TWITTER_CONSUMER_KEY;
 
 	// Your Twitter App Consumer Secret
-	private $consumer_secret = 'Os3GHX3NcgxgOwRS2HoUJs0kDcfYzXtWmppiV0CgQ';
+	private $consumer_secret = TWITTER_CONSUMER_SECRET;
 
 	// Your Twitter App Access Token
-	private $user_token = '249106004-7juUGbv8v3HSXVlF4XDn8xq9Ir9ZsjGj2JhbUwyB';
+	private $user_token = TWITTER_USER_TOKEN;
 
 	// Your Twitter App Access Token Secret
-	private $user_secret = '95Y65QB48aF8QeDZ2A46S7wUmPg1iZTCxKN1PKys';
+	private $user_secret = TWITTER_USER_SECRET;
 
 	// Path to tmhOAuth libraries
 	private $lib = 'libraries/twitter/';

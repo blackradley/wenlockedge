@@ -44,8 +44,8 @@ define("BLOGGER_NAME",					"snibstonmuseum");
 define("BLOGGER_ID",					"7197564171262496043");
 define("FACEBOOK_PAGE",					"Snibston");
 define("FACEBOOK_PAGE_ID",				"59715484435");
-define("FACEBOOK_APP_ID",				"***REMOVED***");
-define("FACEBOOK_SECRET",				"***REMOVED***");
+define("FACEBOOK_APP_ID",               getenv('FACEBOOK_APP_ID'));
+define("FACEBOOK_SECRET",               getenv('FACEBOOK_SECRET'));
 define("FLICKR_USER",					"75288749@N02"); // lccheritage
 define("FLICKR_SET_SNIBSTON_HOME",		"72157632653435887");
 define("FLICKR_SET_SNIBSTON_VISIT",		"72157632653541817");
@@ -54,4 +54,10 @@ define("FLICKR_SET_SNIBSTON_HIRE",		"72157633829392451");
 define("FLICKR_SET_SNIBSTON_CENTURY",	"72157632793615575");
 define("FLICKR_SET_SNIBSTON_EAT",		"72157632800229235");
 define("FLICKR_SET_SNIBSTON_WHATS_ON",	"72157632805243954");
-
+define("TWITTER_CONSUMER_KEY",          getenv('TWITTER_CONSUMER_KEY'));
+define("TWITTER_CONSUMER_SECRET",       getenv('TWITTER_CONSUMER_SECRET'));
+define("TWITTER_USER_TOKEN",            getenv('TWITTER_USER_TOKEN'));
+define("TWITTER_USER_SECRET",           getenv('TWITTER_USER_SECRET'));
+define("SMTP_USER",           			getenv('SMTP_USER'));
+define("SMTP_PASS",						getenv('SMTP_PASS'));
+define("SMTP_DEST",						getenv('SMTP_DEST'));

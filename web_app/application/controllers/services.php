@@ -33,6 +33,15 @@ Class Services extends CI_Controller {
     	$this->load->library('Twitter');
     	$this->twitter->fetch();
     }
+
+    /*
+     * Send a test message to check the email works.
+     */
+    function send()
+    {
+        $this->load->helper('email_helper');
+        tell_webmaster("Test message sent at ".date("Y-m-d H:i:s").".");
+    }
     
     /*
      * While the application is on AppFog we can't look at the cached files, so this
