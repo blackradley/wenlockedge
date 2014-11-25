@@ -40,7 +40,7 @@ Class Services extends CI_Controller {
     function send()
     {
         $this->load->helper('email_helper');
-        tell_webmaster("Test message sent at ".date("Y-m-d H:i:s").".");
+        echo tell_webmaster("Test message sent at ".date("Y-m-d H:i:s").".");
     }
     
     /*

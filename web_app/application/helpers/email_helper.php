@@ -24,6 +24,6 @@ function tell_webmaster($message)
     $CI->email->message($message);
     $CI->email->send();
 
-    echo $CI->email->print_debugger();
+    return $CI->email->print_debugger();
 }
 ?>
