@@ -36,6 +36,7 @@ class Blogger_post  {
 		curl_setopt($ch, CURLOPT_HEADER, FALSE); // remove header
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, CURL_TIME_OUT);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE); // ignore invalid certificate error which appeared on Azure.
 		
 		$feed = curl_exec($ch);
 		if(curl_errno($ch)) // get the cached version and send a warning
