@@ -203,22 +203,22 @@
 	<script type="text/javascript">
     if (jQuery.cookie('cc_cookie_accept') == "cc_cookie_accept") {
         // Collect the Google Analytics
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		
-		  ga('create', 'UA-36961584-2', 'snibston.com');
-		  ga('send', 'pageview');
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-36961584-2', 'auto');
+		ga('send', 'pageview');
 		
 		// Update the news - add #visitsnibston to query to limit twitter feed
       	$(".tweet").tweet({
-          username: "SnibstonLCC",
-          join_text: "auto",
-          avatar_size: 32,
-          count: 7,
-          template: "{text}",
-          loading_text: "loading tweets..."
+			username: "SnibstonLCC",
+			join_text: "auto",
+			avatar_size: 32,
+			count: 7,
+			template: "{text}",
+			loading_text: "loading tweets..."
       });
 	}
 	
