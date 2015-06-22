@@ -1,6 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 
-include 'ChromePhp.php'; // For use with Chrome Logger (http://craig.is/writing/chrome-logger)
+require_once('ChromePhp.php'); // For use with Chrome Logger (http://craig.is/writing/chrome-logger)
+// ChromePhp::log($this->facebookGraph); // use like this.
+require_once(APPPATH.'libraries/facebook/facebook.php');
 require_once('Helpers.php');
 
 /*
@@ -10,6 +12,7 @@ class Fb_graph
 {
 	private $CI;
 	private $facebookGraph;
+	private $_facebookAPI;
 	private $days = array("mon"	=> "Monday",
 				"tue"	=> "Tuesday",
 				"wed"	=> "Wednesday",
@@ -17,9 +20,17 @@ class Fb_graph
 				"fri"	=> "Friday",
 				"sat"	=> "Saturday",
 				"sun"	=> "Sunday");
-
+	
+	/*
+	 * Set the Facebook API paramaters and load the driver for caching and the email helper.
+	 */
 	function __construct()
 	{
+		$this->facebookAPI = new Facebook(array(
+				'appId'  => FACEBOOK_APP_ID,
+				'secret' => FACEBOOK_SECRET,
+				'allowSignedRequest' => false // optional but should be set to false for non-canvas apps
+		));
 		// We will be caching the data
 		$this->CI =& get_instance();
 		$this->CI->load->driver('cache', array('adapter' => 'file', 'backup' => 'apc'));
@@ -29,47 +40,40 @@ class Fb_graph
 	
 	/*
 	 * Get the Facebook Graph feed.  The Facebook Graph feed is cached
-	 * so the it can be used in case of a cUrl error, but also so it 
+	 * so the it can be used in case of a request error, but also so it 
 	 * can be used by all the other pages.  If it were only used on one 
 	 * or two pages the page output caching would be sufficient.  But since 
 	 * it is used on other pages we can used the cached data rather than 
-	 * making a cUrl request, if the data is still fresh enough.
+	 * making a request, if the data is still fresh enough.
 	 * 
 	 * Generally this caching is a bit of a drag to debug so I wonder
 	 * about it's utility.  However, it seems to work so I am going to 
 	 * leave it in.
 	 */
 	private function _getFacebookGraph(){
+
 		$cache_name = "facebook_graph.json";
 		$cache_data = null;
 		$cache_metadata = $this->CI->cache->get_metadata($cache_name);
 		if (time() > $cache_metadata['mtime'] + (CACHE_TIME_PAGE * 60)) // the cache is old get the feed again.
 		{
-			log_message('debug', 'Fb_graph making cUrl request.');
-			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL, "http://graph.facebook.com/".FACEBOOK_PAGE);
-			curl_setopt($ch, CURLOPT_HEADER, FALSE); // remove header
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-
-			$feed = curl_exec($ch);
-			if(curl_errno($ch)) // get the cached version and send a warning
+			log_message('debug', 'Fb_graph making GET request.');
+			try 
 			{
-				log_message('debug', 'Fb_graph cUrl error using data cache.');
-				$cache_data = json_decode($this->CI->cache->get($cache_name));
-				tell_webmaster("Facebook Graph feed not working.");
+				$feed = $this->facebookAPI->api('/'.FACEBOOK_PAGE,'GET');
+				log_message('debug', 'Fb_graph caching data from request.');
+				$this->CI->cache->save($cache_name, $feed, CACHE_TIME_DATA); // refresh the cache including a period of grace
+				$cache_data = $feed;
+			} catch(FacebookApiException $e) { // get the cached version and send a warning
+				log_message('debug', 'Fb_graph GET error using data cache.');
+				$cache_data = $this->CI->cache->get($cache_name);
+				tell_webmaster("Facebook Graph feed not working.");	
 			}
-			else // refresh the cache including a period of grace
-			{
-				log_message('debug', 'Fb_graph caching data from cUrl.');
-				$this->CI->cache->save($cache_name, $feed, CACHE_TIME_DATA);
-				$cache_data = json_decode($feed);
-			}
-			curl_close($ch);
 		}
-		else // use the cache and avoid another cUrl request
+		else // use the cache and avoid another request
 		{
-			log_message('debug', 'Fb_graph using data cache to save cUrl calls.');
-			$cache_data = json_decode($this->CI->cache->get($cache_name));
+			log_message('debug', 'Fb_graph using data cache to save request.');
+			$cache_data = $this->CI->cache->get($cache_name);
 		}
 		return $cache_data;
 	}
@@ -117,9 +121,9 @@ class Fb_graph
 	private function _getOpeningContent($d)
 	{
 		// Check if hours are in the Facebook Graph
-		if (isset( $this->facebookGraph->hours))
+		if (isset( $this->facebookGraph['hours']))
 		{
-			$hours = (array) $this->facebookGraph->hours;
+			$hours = (array) $this->facebookGraph['hours'];
 		}
 	
 		if(isset($hours[$d . "_2_open"]) || isset($hours[$d . "_2_close"]))
@@ -160,29 +164,29 @@ class Fb_graph
 	{
 		$facebookGraph = new Facebook_Graph();
 		$facebookGraph->sourceUrl = $this->_getSourceUrl();
-		$facebookGraph->name = $this->facebookGraph->name;
+		$facebookGraph->name = $this->facebookGraph['name'];
 		$facebookGraph->openingHoursToday = $this->getOpeningHoursToday();
 		$facebookGraph->openingHours = $this->getOpeningHours();
 		if(isset($this->facebookGraph->public_transit))
 		{
 			$facebookGraph->publicTransport = $this->facebookGraph->public_transit;
 		}
-		if(isset($this->facebookGraph->about))
+		if(isset($this->facebookGraph['about']))
 		{
-			$facebookGraph->about = $this->facebookGraph->about;
+			$facebookGraph->about = $this->facebookGraph['about'];
 		}
-		if(isset($this->facebookGraph->description))
+		if(isset($this->facebookGraph['description']))
 		{
-			$facebookGraph->description = $this->facebookGraph->description;
+			$facebookGraph->description = $this->facebookGraph['description'];
 		}
-		if(isset($this->facebookGraph->phone))
+		if(isset($this->facebookGraph['phone']))
 		{
-			$facebookGraph->phone = $this->facebookGraph->phone;
+			$facebookGraph->phone = $this->facebookGraph['phone'];
 		}
 		$location = new Location();
 		$location->address = $this->_getAddress();
-		$location->latitude = $this->facebookGraph->location->latitude;
-		$location->longitude = $this->facebookGraph->location->longitude;
+		$location->latitude = $this->facebookGraph['location']['latitude'];
+		$location->longitude = $this->facebookGraph['location']['longitude'];
 		$facebookGraph->location = $location;
 		return $facebookGraph;
 	}
@@ -202,13 +206,13 @@ class Fb_graph
 	 */
 	private function _getAddress()
 	{
-		$location = $this->facebookGraph->location;
+		$location = $this->facebookGraph['location'];
 
-		$street = isset($location->street) ? $location->street : "";
-		$city = isset($location->city) ? $location->city : "";
-		$state = isset($location->state) ? $location->state : "";
-		$country = isset($location->country) ? $location->country : "";
-		$zip = isset($location->zip) ? $location->zip : "";
+		$street = isset($location['street']) ? $location['street'] : "";
+		$city = isset($location['city']) ? $location['city'] : "";
+		$state = isset($location['state']) ? $location['state'] : "";
+		$country = isset($location['country']) ? $location['country'] : "";
+		$zip = isset($location['zip']) ? $location['zip'] : "";
 
 		$addressArray = array($street, $city, $state, $country, $zip);
 		$addressArray = array_filter($addressArray); // Filter out the blanks
@@ -226,7 +230,7 @@ class Facebook_Graph
 	public $openingHoursToday = "No opening hours for today found";
 	public $openingHours = "No opening hours found";
 	public $publicTransport = "Sorry no information about public transport links found";
-	public $about = "No about text found";
+	public $about = ""; // Snibston doesn't have 'about' text
 	public $description = "No description text found";
 	public $phone = "No phone number found";
 	public $location;	

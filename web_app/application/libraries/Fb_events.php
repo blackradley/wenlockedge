@@ -1,7 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 
-//include 'ChromePhp.php';// For use with Chrome Logger (http://craig.is/writing/chrome-logger)
-include(APPPATH.'libraries/facebook/facebook.php');
+require_once('ChromePhp.php'); // For use with Chrome Logger (http://craig.is/writing/chrome-logger)
+// ChromePhp::log($this->facebookGraph); // use like this.
+require_once(APPPATH.'libraries/facebook/facebook.php');
 date_default_timezone_set('Europe/London');
 
 /*
