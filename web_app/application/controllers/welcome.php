@@ -27,7 +27,7 @@ class Welcome extends CI_Controller
 		
 		//Facebook events
 		$this->load->library('Fb_events');
-		$content_data['events_list'] = $this->fb_events->getEventsListFilteredOnEnd("Must See");
+		$content_data['events_list'] = $this->fb_events->getEventsListFilteredOnEnd("Must See!");
 				
 		//Facebook - About and Description
 		$this->load->library('Fb_graph');
